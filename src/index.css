@@ -2,15 +2,9 @@ body {
   background-color: #fad4c6;
   overflow-x: hidden;
   margin: 0;
-  font-family: 'Asap Condensed', sans-serif;
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Asap Condensed', sans-serif, 'Courier Prime', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .parent-container {
