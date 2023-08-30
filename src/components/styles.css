@@ -8,6 +8,10 @@
     width: 99vw;
 }
 
+.form-container::-webkit-scrollbar{
+    display: none;
+}
+
 .img-container {
     max-height: 10%;
     display: flex;
