@@ -1,6 +1,6 @@
 body {
   background-color: #fad4c6;
-  overflow-x: auto;
+  overflow-x: hidden;
   margin: 0;
   font-family: 'Asap Condensed', sans-serif;
   font-family: 'Courier Prime', monospace;
@@ -14,10 +14,11 @@ code {
 }
 
 .parent-container {
-  border: 1px solid red;
-  width: 99.6vw;
-  height: 99.8vh;
-  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("./assets/background-image.jpg");
   background-size: cover;
   background-position: center;
