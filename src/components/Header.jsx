@@ -2,9 +2,15 @@ import React from "react";
 import companyLogo from "../assets/logo.jpg";
 import "./styles.css";
 
-const Header = () => {
+const Header = ({ isSuccessError = false }) => {
   return (
-    <div className="img-container">
+    <div
+      className={
+        isSuccessError
+          ? "success-error-header-img-container"
+          : "header-img-container"
+      }
+    >
       <img src={companyLogo} alt="Rajlaxmi Bedding Store logo" />
     </div>
   );

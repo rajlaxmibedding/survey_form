@@ -1,22 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import Form from "./components/Form";
+import SuccessErrorPage from "./components/SuccessErrorPage";
+import { checkServeyCode } from "./api/handler";
 
 function App() {
+  const [surveyCode, setSurveyCode] = useState(null);
+  const [isSurveyCodeValid, setIsSurveyCodeValid] = useState(true);
+  const [key, setKey] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
+
   useEffect(() => {
-    // Parse the query parameters from the URL
     const queryParams = new URLSearchParams(window.location.search);
-    const bookingId = queryParams.get("bookingId");
+    const querySurveyCode = queryParams.get("surveyCode");
 
-    if (bookingId) {
-      // Use the bookingId in your app logic
-      console.log(`Booking ID: ${bookingId}`);
-
-      // You can now implement logic to validate the booking ID and restrict access if needed.
+    if (querySurveyCode) {
+      setSurveyCode(querySurveyCode);
     } else {
-      // Handle the case where there is no 'bookingId' query parameter
-      console.log("No booking ID found in the URL");
+      setSurveyCode(null);
     }
+
+    const validateCode = async () => {
+      try {
+        const { bookingIdExists, key, error } = await checkServeyCode(
+          querySurveyCode
+        );
+
+        if (bookingIdExists !== undefined)
+          setIsSurveyCodeValid(bookingIdExists);
+        if (error !== undefined) setErrorMessage(error);
+        if (key !== undefined) setKey(key);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    validateCode();
   }, []);
 
   function isMobileDevice() {
@@ -27,10 +45,26 @@ function App() {
 
   return (
     <div className="parent-container">
-      {isMobileDevice() ? (
-        <Form />
+      {!isMobileDevice() ? (
+        <SuccessErrorPage
+          message={[
+            "This survey is only available on mobile devices.",
+            "Open this link in any mobile device or tablet.",
+          ]}
+        />
+      ) : surveyCode === null ? (
+        <SuccessErrorPage
+          message={[
+            "Invalid Link !!!",
+            "Please contact our store to get a valid link.",
+          ]}
+        />
+      ) : isSurveyCodeValid ? (
+        <SuccessErrorPage
+          message={[errorMessage?.[0] ?? "", errorMessage?.[1] ?? ""]}
+        />
       ) : (
-        <p>This survey is only available on mobile devices.</p>
+        <Form surveyCode={surveyCode} surveyKey={key} />
       )}
     </div>
   );

@@ -12,14 +12,14 @@
     display: none;
 }
 
-.img-container {
+.header-img-container {
     max-height: 10%;
     display: flex;
     justify-content: center;
     padding: 3%;
 }
 
-.img-container img {
+.header-img-container img {
     width: 50%;
     height: auto;
 }
@@ -42,7 +42,7 @@
 
 .text-large {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     font-family: 'Asap Condensed',
         sans-serif;
@@ -51,7 +51,7 @@
 }
 .text-medium {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
     font-family: 'Courier Prime',
         monospace;
@@ -59,7 +59,7 @@
 
 .text-small {
     margin: 0;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-align: center;
     font-family: 'Courier Prime',
         monospace;
@@ -102,14 +102,14 @@
     align-self: flex-end;
 }
 
-.footer-container {
+.button-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 3%;
+    gap: 1rem;
 }
 
-.footer-container button {
+.button-container button {
     width: 35%;
     padding: 0.4rem;
     border-radius: 1rem;
@@ -119,4 +119,93 @@
         monospace;
     font-weight: 700;
     font-size: 1rem;
+}
+
+.mandatory-asterix {
+    margin: 0;
+    color: darkred;
+    font-family: 'Courier Prime', monospace;
+}
+
+.success-error-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.success-error-header-img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.success-error-header-img-container img {
+    width: 50%;
+    height: auto;
+}
+
+.success-error-img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.success-error-img-container img {
+    width: 4rem;
+    height: auto;
+}
+
+.success-error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-error-message p {
+    margin: 0.4rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Asap Condensed', sans-serif;
+    font-weight: 600;
+    word-spacing: 0.6rem;
+}
+
+.error { color: darkred; }
+
+.success {
+    color: green;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+.footer-container p {
+    display: flex;
+    margin: 0%;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.footer-text-large {
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    font-family: 'Asap Condensed',sans-serif;
+    word-spacing: 0.6rem;
+}
+
+.footer-text-small {
+    font-size: 1rem;
+    font-family: 'Courier Prime',
+        monospace;
+}
+
+.bold { 
+    font-weight: 700;
 }
