@@ -1,12 +1,15 @@
 import axios from "axios";
 
 const checkServeyCode = async (surveyCode) => {
-  const res = await axios.get("http://localhost:5000/survey-form", {
-    params: { surveyCode: surveyCode },
-    validateStatus: function (status) {
-      return status === 200 || status === 400 || status === 500;
-    },
-  });
+  const res = await axios.get(
+    "https://drab-blue-fossa-robe.cyclic.cloud/survey-form",
+    {
+      params: { surveyCode: surveyCode },
+      validateStatus: function (status) {
+        return status === 200 || status === 400 || status === 500;
+      },
+    }
+  );
   // console.log(res);
 
   if (res.status === 400 || res.status === 500) {
@@ -20,7 +23,7 @@ const checkServeyCode = async (surveyCode) => {
 
 const submitSurveyResponse = async (surveyResponse) => {
   const res = await axios.post(
-    "http://localhost:5000/survey-form",
+    "https://drab-blue-fossa-robe.cyclic.cloud/survey-form",
     {
       ...surveyResponse,
     },
