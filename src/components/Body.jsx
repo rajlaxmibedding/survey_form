@@ -53,8 +53,8 @@ const Body = ({ surveyCode, surveyKey }) => {
           <div className="body-question-text-container">
             <div className="question-segment">
               <p className="text-medium">
-                How satisfied were you with the quality of the product you
-                purchased?<span className="mandatory-asterix">*</span>
+                How satisfied are you with the quality of our products?
+                <span className="mandatory-asterix">*</span>
               </p>
               <div className="rating-stars">
                 <Rating
@@ -89,8 +89,7 @@ const Body = ({ surveyCode, surveyKey }) => {
             </div>
             <div className="question-segment">
               <p className="text-medium">
-                How likely are you to recommend our products & services to
-                others?
+                How would you rate our staff behavior?
                 <span className="mandatory-asterix">*</span>
               </p>
               <div className="rating-stars">
@@ -108,7 +107,7 @@ const Body = ({ surveyCode, surveyKey }) => {
             </div>
             <div className="question-segment">
               <p className="text-medium">
-                How would you rate our tailoring unit?
+                How would you rate our stitching & delivery unit?
                 <span className="mandatory-asterix">*</span>
               </p>
               <div className="rating-stars">
@@ -143,15 +142,20 @@ const Body = ({ surveyCode, surveyKey }) => {
               </div>
             </div>
             <div className="question-segment">
-              <p className="text-medium">Any other comments?</p>
+              <p className="text-medium">Any other suggestions?</p>
               <div className="comments-text-area">
                 <textarea
+                  value={comments}
                   maxLength={100}
-                  rows={3}
+                  rows={1}
                   onChange={(event) => {
-                    setCharacterCounter(event.target.value.length);
-                    setComments(event.target.value);
-                    console.log(comments);
+                    const updatedComment = event.target.value.replace(
+                      /[\n\r]/g,
+                      ""
+                    );
+                    setCharacterCounter(updatedComment.length);
+                    setComments(updatedComment);
+                    // console.log(updatedComment);
                   }}
                 />
                 <p>{characterCounter} / 100</p>

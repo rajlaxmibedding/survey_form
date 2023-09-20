@@ -31,7 +31,8 @@ function App() {
         if (error !== undefined) setErrorMessage(error);
         if (key !== undefined) setKey(key);
       } catch (err) {
-        console.log(err);
+        setIsSurveyCodeValid(true);
+        setErrorMessage([err, ""]);
       }
     };
     validateCode();

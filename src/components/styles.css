@@ -29,7 +29,7 @@
     padding-top: 1%;
     padding-left: 4.5%;
     padding-right: 4.5%;
-    gap: 2.5vh;
+    gap: 2.8vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,8 +91,18 @@
 
 .comments-text-area textarea {
     background-color: #d9dec5;
-    border: 1px solid #687047;
+    border: none;
+    resize: none;
+    overflow-x: scroll;
+    white-space: nowrap;
+    border-bottom: 1px solid #687047;
     width: 80%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.comments-text-area textarea:focus {
+    outline: none;
 }
 
 .comments-text-area p {
@@ -123,7 +133,7 @@
 
 .mandatory-asterix {
     margin: 0;
-    color: darkred;
+    color: #9e1d2f;
     font-family: 'Courier Prime', monospace;
 }
 
@@ -135,6 +145,10 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+
+.success-error-img-message-wrapper {
+    margin: 15vh 0;
 }
 
 .success-error-header-img-container {
@@ -172,10 +186,10 @@
     word-spacing: 0.6rem;
 }
 
-.error { color: darkred; }
+.error { color: #9e1d2f; }
 
 .success {
-    color: green;
+    color: #687047;
 }
 
 .footer-container {
@@ -201,7 +215,7 @@
 }
 
 .footer-text-small {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: 'Courier Prime',
         monospace;
 }
